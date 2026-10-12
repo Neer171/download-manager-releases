@@ -1,5 +1,7 @@
 # Download Manager: installers
 
+**Website:** https://neer171.github.io/download-manager-releases/ (picks the right download for your computer)
+
 Download the installer for your computer from the **[Releases](../../releases/latest)** page:
 
 | Computer | File |

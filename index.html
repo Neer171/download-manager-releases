@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download Manager: fast, resumable downloads and video saving</title>
+  <meta name="description" content="Free download manager for Mac, Windows and Linux: multi-connection downloads, pause and resume, video up to 8K, and a browser extension for Chrome, Edge, Brave, Opera, Vivaldi and Firefox.">
+  <link rel="icon" href="icon.png">
+  <style>
+    :root {
+      --bg: #f7f8fb; --card: #fff; --text: #141922; --muted: #5d6676; --border: #e3e6ee;
+      --accent: #2563eb; --accent-text: #fff; --accent-soft: #e8efff; --ok: #15803d;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0f1218; --card: #171b23; --text: #e8ebf1; --muted: #9aa3b2; --border: #262c38; --accent: #4f8cff; --accent-soft: #1b2741; --ok: #4ade80; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    a { color: var(--accent); }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+    header { padding: 56px 0 28px; text-align: center; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 700; font-size: 20px; }
+    .brand img { width: 44px; height: 44px; }
+    h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.12; margin: 22px auto 14px; max-width: 760px; letter-spacing: -0.02em; }
+    .lead { color: var(--muted); font-size: 18px; max-width: 640px; margin: 0 auto; }
+    .cta { margin: 30px 0 10px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 12px; font-weight: 650; font-size: 17px; text-decoration: none; background: var(--accent); color: var(--accent-text); box-shadow: 0 6px 20px rgb(37 99 235 / 0.25); }
+    .btn:hover { filter: brightness(1.07); }
+    .meta { color: var(--muted); font-size: 14px; }
+    .others { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; margin-top: 8px; font-size: 15px; }
+    section { padding: 34px 0; }
+    h2 { font-size: 26px; margin: 0 0 18px; letter-spacing: -0.01em; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
+    .card h3 { margin: 0 0 6px; font-size: 16px; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+    .steps ol { margin: 8px 0 0; padding-left: 20px; color: var(--muted); font-size: 15px; }
+    .steps li { margin-bottom: 4px; }
+    code { background: var(--accent-soft); padding: 1px 6px; border-radius: 6px; font-size: 14px; word-break: break-all; }
+    .note { color: var(--muted); font-size: 14px; }
+    footer { padding: 30px 0 50px; color: var(--muted); font-size: 14px; text-align: center; border-top: 1px solid var(--border); margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="brand"><img src="icon.png" alt="">Download Manager</div>
+    <h1>Faster downloads that pause, resume and never start over</h1>
+    <p class="lead">Free for Mac, Windows and Linux. Splits downloads across many connections, saves videos up to 8K, and works with your browser.</p>
+    <div class="cta">
+      <a class="btn" id="primary" href="https://github.com/Neer171/download-manager-releases/releases/latest">Download</a>
+      <div class="meta" id="version">Latest version</div>
+      <div class="others" id="others"></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>What it does</h2>
+      <div class="grid">
+        <div class="card"><h3>Faster downloads</h3><p>Each file is fetched over up to 32 connections at once, so big downloads finish sooner.</p></div>
+        <div class="card"><h3>Pause and resume</h3><p>Stop any time, even restart your computer. Lost connection? It waits and continues by itself.</p></div>
+        <div class="card"><h3>Videos up to 8K</h3><p>A "Download video" button on players, for YouTube and 1,000+ sites. Pick the quality, or just the audio.</p></div>
+        <div class="card"><h3>Works with your browser</h3><p>Chrome, Edge, Brave, Opera, Vivaldi, Arc and Firefox. Downloads go to the app automatically.</p></div>
+        <div class="card"><h3>Copy a link, done</h3><p>Copy a download link anywhere and the app offers to download it.</p></div>
+        <div class="card"><h3>Playlists and clips</h3><p>Choose videos from a playlist, or save just part of a video.</p></div>
+        <div class="card"><h3>Schedule and organise</h3><p>Download overnight, sort files into folders by type, unzip archives, set a speed limit.</p></div>
+        <div class="card"><h3>Updates itself</h3><p>New versions install automatically. Every update is digitally signed and checked.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Install</h2>
+      <div class="steps">
+        <div class="card"><h3>Mac</h3><ol>
+          <li>Open the <code>.dmg</code> and drag Download Manager into Applications.</li>
+          <li>Open it. If macOS says it can't check the app: System Settings › Privacy &amp; Security › <b>Open Anyway</b>.</li>
+          <li>Click <b>Extension</b> in the app to add it to your browser.</li>
+        </ol><p class="note" style="margin-top:8px">Not sure which Mac you have? Apple menu › About This Mac: "Apple M…" means Apple Silicon.</p></div>
+        <div class="card"><h3>Windows 10 / 11</h3><ol>
+          <li>Run the <code>Setup .exe</code>. If Windows shows "Windows protected your PC": <b>More info › Run anyway</b>.</li>
+          <li>Click through the installer; no administrator rights needed.</li>
+          <li>Click <b>Extension</b> in the app to add it to your browser.</li>
+        </ol></div>
+        <div class="card"><h3>Linux (Ubuntu, Debian, Mint…)</h3><ol>
+          <li>Download the <code>.deb</code> for your computer (amd64 for most PCs).</li>
+          <li>Run <code>sudo apt install ./download-manager_*.deb</code></li>
+          <li>Open Download Manager from your app menu.</li>
+        </ol></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Private and safe</h2>
+      <div class="grid">
+        <div class="card"><h3>Stays on your computer</h3><p>No accounts, no ads, no tracking. The app only talks to the sites you download from and checks for its own updates.</p></div>
+        <div class="card"><h3>Checked downloads</h3><p>Downloaded files are marked as coming from the internet, so your system still checks them before they run.</p></div>
+        <div class="card"><h3>Copy protection respected</h3><p>DRM-protected video (Netflix and similar) isn't downloaded. Only save content you have the right to.</p></div>
+      </div>
+      <p class="note">Found a security problem? <a href="https://github.com/Neer171/download-manager-releases/security/advisories/new">Report it privately</a>.</p>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    Download Manager · <a href="https://github.com/Neer171/download-manager-releases/releases">All versions and release notes</a>
+  </footer>
+
+  <script>
+    // Picks the right installer for this computer from the latest release (GitHub's public API).
+    const RELEASES = 'https://github.com/Neer171/download-manager-releases/releases/latest';
+    const FILES = [
+      { id: 'mac-arm', label: 'Mac (Apple Silicon)', re: /-AppleSilicon\.dmg$/ },
+      { id: 'mac-intel', label: 'Mac (Intel)', re: /-Intel\.dmg$/ },
+      { id: 'win', label: 'Windows', re: /Setup-[\d.]+\.exe$/ },
+      { id: 'linux', label: 'Linux (.deb, amd64)', re: /_amd64\.deb$/ },
+      { id: 'linux-arm', label: 'Linux (.deb, arm64)', re: /_arm64\.deb$/ },
+      { id: 'firefox', label: 'Firefox add-on', re: /-Firefox-[\d.]+\.xpi$/ },
+    ];
+
+    async function detect() {
+      const ua = navigator.userAgent;
+      if (/Windows/i.test(ua)) return 'win';
+      if (/Android|iPhone|iPad/i.test(ua)) return null;
+      if (/Mac/i.test(ua)) {
+        try {
+          const arch = (await navigator.userAgentData?.getHighEntropyValues(['architecture']))?.architecture;
+          if (arch === 'x86') return 'mac-intel';
+        } catch {}
+        return 'mac-arm'; // Safari and Firefox don't say; most Macs since 2020 are Apple Silicon
+      }
+      if (/Linux/i.test(ua)) return /aarch64|arm64/i.test(ua) ? 'linux-arm' : 'linux';
+      return null;
+    }
+
+    (async () => {
+      const mine = await detect();
+      let assets = [];
+      let version = '';
+      try {
+        const r = await fetch('https://api.github.com/repos/Neer171/download-manager-releases/releases/latest');
+        const rel = await r.json();
+        assets = rel.assets || [];
+        version = rel.tag_name ? `Version ${rel.tag_name.replace(/^v/, '')} · ${new Date(rel.published_at).toLocaleDateString()}` : '';
+      } catch {}
+      const urlFor = (f) => assets.find((a) => f.re.test(a.name))?.browser_download_url;
+      const primary = FILES.find((f) => f.id === mine && urlFor(f));
+      const btn = document.getElementById('primary');
+      if (primary) {
+        btn.href = urlFor(primary);
+        btn.textContent = `Download for ${primary.label}`;
+      } else {
+        btn.textContent = 'Choose a download';
+      }
+      document.getElementById('version').textContent = version || 'Free · Mac, Windows and Linux';
+      const others = document.getElementById('others');
+      for (const f of FILES) {
+        const u = urlFor(f);
+        if (!u || f === primary) continue;
+        const a = document.createElement('a');
+        a.href = u;
+        a.textContent = f.label;
+        others.append(a);
+      }
+      if (!assets.length) {
+        const a = document.createElement('a');
+        a.href = RELEASES;
+        a.textContent = 'All downloads';
+        others.append(a);
+      }
+    })();
+  </script>
+</body>
+</html>
