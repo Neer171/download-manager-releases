@@ -141,7 +141,7 @@
         const r = await fetch('https://api.github.com/repos/Neer171/download-manager-releases/releases/latest');
         const rel = await r.json();
         assets = rel.assets || [];
-        version = rel.tag_name ? `Version ${rel.tag_name.replace(/^v/, '')} · ${new Date(rel.published_at).toLocaleDateString()}` : '';
+        version = rel.tag_name ? `Version ${rel.tag_name.replace(/^v/, '')} · ${new Date(rel.published_at).toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' })}` : '';
       } catch {}
       const urlFor = (f) => assets.find((a) => f.re.test(a.name))?.browser_download_url;
       const primary = FILES.find((f) => f.id === mine && urlFor(f));
